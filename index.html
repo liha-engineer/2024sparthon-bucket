@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>2024 SPARTHON BUCKET LIST!</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bg {
+      background-image: url("resource/img/Sparthon_BG.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      margine: 0 auto;
+      background-color: #141617;
+    }
+
+    .title {
+      margin-top: 50px;
+      color: E8344E;
+    }
+
+    .msg {
+      color: white;
+      margin-bottom: 48px;
+    }
+
+    .bucket {
+      width: 160px;
+      height: 160px;
+      background-size: cover;
+      background-position: cover;
+    }
+
+    .img1 {
+      background-image: url(./resource/img/Bucket01.png);
+      color: white;
+    }
+
+    .img2 {
+      background-image: url(./resource/img/Bucket02.png);
+      color: black;
+    }
+
+    .img3 {
+      background-image: url(./resource/img/Bucket03.png);
+      color: black;
+    }
+
+    .img4 {
+      background-image: url(./resource/img/Bucket04.png);
+      color: white;
+    }
+
+    .img5 {
+      background-image: url(./resource/img/Bucket05.png);
+      color: white;
+    }
+
+    .img6 {
+      background-image: url(./resource/img/Bucket06.png);
+      color: black;
+    }
+  </style>
+
+</head>
+
+<body class="bg center">
+  <h1 class="title">SPARTHON Bucket List</h1>
+  <p class="msg">꿈은 꾸는 것이 아닌, 이루는 것이다!</p>
+  <div class="flex-row wrap">
+    <div class="bucket img1 center">나만의 게임 만들기</div>
+    <div class="bucket img2 center">새 집으로 독립하기</div>
+    <div class="bucket img3 center">10kg 감량하기</div>
+    <div class="bucket img4 center">새차 사기</div>
+    <div class="bucket img5 center ">도토리소풍 들어가기</div>
+    <div class="bucket img6 center">많이 벌고 풍족하게 살기!</div>
+  </div>
+
+  <script>
+    // 페이지 로드 시 이전 상태 복원
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buckets = document.querySelectorAll(".bucket");
+      buckets.forEach((bucket, index) => {
+        // 로컬 스토리지에서 상태 읽기
+        const isDone = localStorage.getItem("bucket" + index) === "done";
+        if (isDone) {
+          bucket.classList.add("done");
+        }
+      });
+    });
+
+    // 버킷 리스트 클릭 이벤트
+    const buckets = document.querySelectorAll(".bucket");
+    buckets.forEach((bucket, index) => {
+      bucket.addEventListener("click", function () {
+        // 클래스 토글
+        bucket.classList.toggle("done");
+
+        // 로컬 스토리지에 상태 저장
+        if (bucket.classList.contains("done")) {
+          localStorage.setItem("bucket" + index, "done");
+        } else {
+          localStorage.setItem("bucket" + index, "");
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
