@@ -1,3 +1,11 @@
+body {
+  font-family: "Orbit", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+
+
 html {
   display: flex;
   flex-direction: column;
@@ -13,6 +21,10 @@ html {
   100% {
     transform: scale(1);
   }
+}
+
+.image {
+  width: 30%; // image 한 행당 3개 정도 오게
 }
 
 .bucket {
@@ -55,12 +67,13 @@ html {
 
 .wrap {
   flex-wrap: wrap;
-  width: 400px;
+  width: 600px;
 }
 
 .msg {
   margin: -10px 0 30px;
-  color: black;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* version 2 */
